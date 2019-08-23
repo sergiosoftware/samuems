@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 app_name = 'aplicacion'
 
 urlpatterns = [
-    path('',home, name = "index"),
+    path('', home, name="index"),
     #path('crear_paciente/',crearPaciente, name = "crear_paciente"),
     #path('listar_paciente/', listarPaciente, name="listar_paciente"),
     #path('editar_paciente/<int:cedula>/', editarPaciente, name="editar_paciente"),
@@ -29,5 +29,16 @@ urlpatterns = [
     path('listar_hospital/', listHospital.as_view(), name="listar_hospital"),
     path('editar_hospital/<int:pk>/', updateHospital.as_view(), name="editar_hospital"),
     path('eliminar_hospital/<int:pk>/', deleteHospital.as_view(), name="eliminar_hospital"),
+
+    # Webservice Archivos
+    path('listar_archivos/', listar_archivos),
+    path('listar_archivo/<int:pk>', listar_un_archivo),
+
+
+    # Webservice Emergencia
+    path('emergencia_ambulancia/<int:numeroMovil>', emergencia_ambulancia),
+    path('terminar_emergencia/', terminar_emergencia),
+    path('listar_emergencias/', emergencias),
+    path('crear_emergencia/', crear_emergencia),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

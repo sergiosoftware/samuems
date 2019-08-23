@@ -1,7 +1,8 @@
 # formularios que se van a utilizar html
 from django.urls import reverse_lazy
 from django import forms
-from .models import Paciente, Ambulancia, Hospital
+from .models import *
+
 
 # Formulario para los datos del paciente
 class pacienteForm(forms.ModelForm):
@@ -22,6 +23,7 @@ class pacienteForm(forms.ModelForm):
             'apP',
             'apnP',
             'alergias',
+            'medicamentos',
             'emailP',
             'telefonoP',
             'direccionP',
@@ -41,6 +43,7 @@ class pacienteForm(forms.ModelForm):
             "apP": ("Antecedentes personales patológicos"),
             "apnP": ("Antecedentes personales no patológicos"),
             "Alergias": ("Antecedentes de alergias"),
+            "medicamentos":("Medicación actual:"),
             "emailP": ("Direccion e-mail"),
             "telefonoP": ("Teléfono"),
             "direccionP": ("Dirección de residencia"),
@@ -60,6 +63,7 @@ class pacienteForm(forms.ModelForm):
             "apP": ("Antecedentes personales patológicos del paciente"),
             "apnP": ("Antecedentes personales no patológicos del paciente"),
             "Alergias": ("Antecedentes de alergias sufridas por el paciente"),
+            "medicamentos":("Los medicamentos que este consumiendo actualmente"),
             "emailP": ("Direccion e-mail del paciente"),
             "telefonoP": ("Teléfono del paciente"),
             "direccionP": ("Dirección de residencia del paciente"),
@@ -146,3 +150,4 @@ class HospitalForm(forms.ModelForm):
             'telefono': ("Número de teléfono del hospital"),
             'nivel': ("Número de nivel del hospital (1,2,3)"),
         }
+
